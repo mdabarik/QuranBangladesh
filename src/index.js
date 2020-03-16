@@ -59,13 +59,17 @@ const SurahDetail = props => {
 class HomePage extends React.Component {
 
 	state = {
-		surahList: SurahList
+		surahList: SurahList,
+		isLoading: true
+	}
+	componentDidMount() {
+		this.setState({isLoading:false})
 	}
 	render() {
 	  	return (
 	  	<>
-	  		<Navigation />
-
+	  		{
+	  		this.state.isLoading ? 
 	  		<div class="loading-spinner">
 	  	  	  <Loader
 		         type="Puff"
@@ -73,9 +77,10 @@ class HomePage extends React.Component {
 		         height={100}
 		         width={100}
 		      />
-	  	  </div>
+	  	    </div> :
+	  		<Navigation />  		
 
-			<div className="surah-item">
+	  	  <div className="surah-item">
 				<ul className="surah-ul">
 					{
 						this.state.surahList.map(surah => {
@@ -95,6 +100,8 @@ class HomePage extends React.Component {
 					}
 				</ul>
 			</div>
+	  		}
+			
 		</>
 	  	)
 	}
@@ -111,9 +118,7 @@ ReactDOM.render(
         <BlogPost />
       </Route>
       <Route path="/surah/:id">
-      	<withRouter>
         	<SurahDetail />
-        </withRouter>
       </Route>
     </Switch>
   </Router>,
