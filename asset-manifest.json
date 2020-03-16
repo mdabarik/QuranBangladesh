@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/QuranBangladesh/static/css/main.1f8cda04.chunk.css",
+    "main.js": "/QuranBangladesh/static/js/main.7c69fc05.chunk.js",
+    "main.js.map": "/QuranBangladesh/static/js/main.7c69fc05.chunk.js.map",
+    "runtime-main.js": "/QuranBangladesh/static/js/runtime-main.2db5cac6.js",
+    "runtime-main.js.map": "/QuranBangladesh/static/js/runtime-main.2db5cac6.js.map",
+    "static/css/2.f5298653.chunk.css": "/QuranBangladesh/static/css/2.f5298653.chunk.css",
+    "static/js/2.9362b095.chunk.js": "/QuranBangladesh/static/js/2.9362b095.chunk.js",
+    "static/js/2.9362b095.chunk.js.map": "/QuranBangladesh/static/js/2.9362b095.chunk.js.map",
+    "index.html": "/QuranBangladesh/index.html",
+    "precache-manifest.1f256b009fbc3f3f64f41ff570fcd134.js": "/QuranBangladesh/precache-manifest.1f256b009fbc3f3f64f41ff570fcd134.js",
+    "service-worker.js": "/QuranBangladesh/service-worker.js",
+    "static/css/2.f5298653.chunk.css.map": "/QuranBangladesh/static/css/2.f5298653.chunk.css.map",
+    "static/css/main.1f8cda04.chunk.css.map": "/QuranBangladesh/static/css/main.1f8cda04.chunk.css.map",
+    "static/js/2.9362b095.chunk.js.LICENSE.txt": "/QuranBangladesh/static/js/2.9362b095.chunk.js.LICENSE.txt",
+    "static/media/quran.png": "/QuranBangladesh/static/media/quran.d9ff01de.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2db5cac6.js",
+    "static/css/2.f5298653.chunk.css",
+    "static/js/2.9362b095.chunk.js",
+    "static/css/main.1f8cda04.chunk.css",
+    "static/js/main.7c69fc05.chunk.js"
+  ]
+}
