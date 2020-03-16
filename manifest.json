@@ -3,7 +3,7 @@
   "name": "Holy Quran Bangladesh",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "quran.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
