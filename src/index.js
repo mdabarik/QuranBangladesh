@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route, useParams, Link } from "react-router-dom";
 import Loader from 'react-loader-spinner';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import ReactSearchBox from 'react-search-box';
 import SurahList from "./surah.json";
 import SurahDetailArabic from "./ayats_ar.json";
 import SurahDetailBengali from './ayats_bn.json';
@@ -17,6 +17,16 @@ function BlogPost() {
   return <div>Now showing post {slug}</div>;
 }
 
+function SearchBar() {
+	return (
+		<ReactSearchBox
+	        placeholder="Enter surah name"
+	        data={SurahList}
+	        callback={record => console.log(record)}
+      	/>
+     )
+}
+
 function Navigation() {
 	return (
 		 <nav className="navigation">
@@ -25,16 +35,20 @@ function Navigation() {
 					<li className="navigation-li">QuranBangladesh</li>
 				</Link>
 			</ul>
+			<ReactSearchBox
+		        placeholder="Enter surah name"
+		        data={SurahList}
+		        callback={record => console.log(record)}
+		      />
 		</nav>
 	)
 }
 
 const SurahDetail = props => {
-
   let { id } = useParams();
   return (
   	<>  	
-  	  <Navigation />
+  	  <Navigation />  	  
 	  <div>
 	    {
 			SurahDetailArabic.map(surah => {
@@ -59,28 +73,13 @@ const SurahDetail = props => {
 class HomePage extends React.Component {
 
 	state = {
-		surahList: SurahList,
-		isLoading: true
-	}
-	componentDidMount() {
-		this.setState({isLoading:false})
+		surahList: SurahList
 	}
 	render() {
 	  	return (
 	  	<>
-	  		{
-	  		this.state.isLoading ? 
-	  		<div class="loading-spinner">
-	  	  	  <Loader
-		         type="Puff"
-		         color="#00BFFF"
-		         height={100}
-		         width={100}
-		      />
-	  	    </div> :
-	  		<Navigation />  		
-
-	  	  <div className="surah-item">
+	  		<Navigation />
+			<div className="surah-item">
 				<ul className="surah-ul">
 					{
 						this.state.surahList.map(surah => {
@@ -100,8 +99,6 @@ class HomePage extends React.Component {
 					}
 				</ul>
 			</div>
-	  		}
-			
 		</>
 	  	)
 	}
@@ -109,8 +106,7 @@ class HomePage extends React.Component {
 }
 
 ReactDOM.render(
-  <Router>
-    <Switch>
+  <Router basename={window.location.pathname || ''}>
       <Route exact path="/">
         <HomePage />
       </Route>
@@ -118,9 +114,8 @@ ReactDOM.render(
         <BlogPost />
       </Route>
       <Route path="/surah/:id">
-        	<SurahDetail />
+        <SurahDetail />
       </Route>
-    </Switch>
   </Router>,
   document.getElementById('root')
 );
