@@ -51,7 +51,7 @@ const SurahDetail = props => {
 					return (
 						<div key={surah.VerseIDAr} className="surah-detail-box">
 							<p className="surah-number">{surah.VerseIDAr}</p>
-							<img className="surah-image" src={require('./images/quran.png')} />
+							<img className="surah-image" src={require('../images/quran.png')} />
 							<p className="surah-arabic">{surah.ayat}</p>
 							<p className="surah-bengali">{SurahDetailBengali[surah.id-1].text}</p>
 							<p className="surah-english">{SurahDetailEnglish[surah.id-1].text}</p>
