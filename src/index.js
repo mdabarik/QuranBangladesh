@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route, useParams, Link } from "react-router-dom";
 import Loader from 'react-loader-spinner';
@@ -17,17 +17,7 @@ function BlogPost() {
   return <div>Now showing post {slug}</div>;
 }
 
-function SearchBar() {
-	return (
-		<ReactSearchBox
-	        placeholder="Enter surah name"
-	        data={SurahList}
-	        callback={record => console.log(record)}
-      	/>
-     )
-}
-
-function Navigation() {
+const Navigation = () => {
 	return (
 		 <nav className="navigation">
 			<ul className="navigation-ul">
@@ -35,34 +25,40 @@ function Navigation() {
 					<li className="navigation-li">QuranBangladesh</li>
 				</Link>
 			</ul>
-			<ReactSearchBox
-		        placeholder="Enter surah name"
-		        data={SurahList}
-		        callback={record => console.log(record)}
-		      />
 		</nav>
 	)
 }
 
 const SurahDetail = props => {
+  const [input, setInput] = useState("");
+
   let { id } = useParams();
   return (
   	<>  	
-  	  <Navigation />  	  
+  	  <Navigation /> 
+  	  <ReactSearchBox
+	        placeholder="Enter bangla keyword"
+	        data={SurahList}
+	        callback={record => console.log(record)}
+	        onChange={(e) => setInput(e)}
+    	/>   	 
 	  <div>
 	    {
 			SurahDetailArabic.map(surah => {
+				let regex = new RegExp( ".*" + input.trim() + ".*" );
+				if(regex.test(SurahDetailBengali[surah.id-1].text)) {
 				if(surah.sura == id) {
 					return (
-						<div className="surah-detail-box">
-							<p className="surah-number" key={surah.sura}>{surah.VerseIDAr}</p>
+						<div key={surah.VerseIDAr} className="surah-detail-box">
+							<p className="surah-number">{surah.VerseIDAr}</p>
 							<img className="surah-image" src={require('./images/quran.png')} />
-							<p className="surah-arabic" key={surah.sura}>{surah.ayat}</p>
-							<p className="surah-bengali" key={surah.sura}>{SurahDetailBengali[surah.id-1].text}</p>
-							<p className="surah-english" key={surah.sura}>{SurahDetailEnglish[surah.id-1].text}</p>
+							<p className="surah-arabic">{surah.ayat}</p>
+							<p className="surah-bengali">{SurahDetailBengali[surah.id-1].text}</p>
+							<p className="surah-english">{SurahDetailEnglish[surah.id-1].text}</p>
 						</div>
 					)
 				}
+			    }
 			})
 		}
 	  </div>
@@ -73,36 +69,46 @@ const SurahDetail = props => {
 class HomePage extends React.Component {
 
 	state = {
-		surahList: SurahList
+		surahList: SurahList,
+		input: "",
 	}
+
 	render() {
 	  	return (
 	  	<>
 	  		<Navigation />
+	  		<ReactSearchBox
+		        placeholder="Enter surah name in bangla"
+		        data={SurahList}
+		        callback={record => console.log(record)}
+		        onChange={(e) => this.setState({input: e})}
+		    />
 			<div className="surah-item">
 				<ul className="surah-ul">
 					{
 						this.state.surahList.map(surah => {
+							let regex = new RegExp( ".*" + this.state.input.trim() + ".*" );
+							if(regex.test(surah.sura_name)) {
 							return (
 								<Link id={surah.sura_no} to={{
 									pathname: "/surah/" + `${surah.sura_no}` +"/"+ `${surah.eng_name}`,
 									hash: `${surah.sura_name}`
 								}}>
-									<li className="surah-li">
+									<li key={surah.sura_name} className="surah-li">
 										<p>{surah.sura_no}</p>										
 										<p>{surah.sura_name}</p>
 										<p>আয়াত সংখ্যা : {surah.total_ayat}</p>
 									</li>
 								</Link>								
-							)							
-						})
+							)	
+							}
+						}) 
 					}
 				</ul>
 			</div>
 		</>
 	  	)
 	}
-
 }
 
 ReactDOM.render(
@@ -121,6 +127,8 @@ ReactDOM.render(
 );
 
 /*
+		     <input type="text" onChange={(e) => this.setState({value: e.target.value}) } />
+
 
 class Home extends React.Compnent {
 	state = {};
