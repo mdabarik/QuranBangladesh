@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/QuranBangladesh/static/css/main.1f8cda04.chunk.css",
-    "main.js": "/QuranBangladesh/static/js/main.31432ea2.chunk.js",
-    "main.js.map": "/QuranBangladesh/static/js/main.31432ea2.chunk.js.map",
+    "main.js": "/QuranBangladesh/static/js/main.76519b99.chunk.js",
+    "main.js.map": "/QuranBangladesh/static/js/main.76519b99.chunk.js.map",
     "runtime-main.js": "/QuranBangladesh/static/js/runtime-main.2db5cac6.js",
     "runtime-main.js.map": "/QuranBangladesh/static/js/runtime-main.2db5cac6.js.map",
-    "static/js/2.256e431e.chunk.js": "/QuranBangladesh/static/js/2.256e431e.chunk.js",
-    "static/js/2.256e431e.chunk.js.map": "/QuranBangladesh/static/js/2.256e431e.chunk.js.map",
+    "static/js/2.7258d5d3.chunk.js": "/QuranBangladesh/static/js/2.7258d5d3.chunk.js",
+    "static/js/2.7258d5d3.chunk.js.map": "/QuranBangladesh/static/js/2.7258d5d3.chunk.js.map",
     "index.html": "/QuranBangladesh/index.html",
-    "precache-manifest.88f02c25dfc66ddff141048135af6e26.js": "/QuranBangladesh/precache-manifest.88f02c25dfc66ddff141048135af6e26.js",
+    "precache-manifest.f87c723c45f1f2a6b8cca608208208a7.js": "/QuranBangladesh/precache-manifest.f87c723c45f1f2a6b8cca608208208a7.js",
     "service-worker.js": "/QuranBangladesh/service-worker.js",
     "static/css/main.1f8cda04.chunk.css.map": "/QuranBangladesh/static/css/main.1f8cda04.chunk.css.map",
-    "static/js/2.256e431e.chunk.js.LICENSE.txt": "/QuranBangladesh/static/js/2.256e431e.chunk.js.LICENSE.txt",
+    "static/js/2.7258d5d3.chunk.js.LICENSE.txt": "/QuranBangladesh/static/js/2.7258d5d3.chunk.js.LICENSE.txt",
     "static/media/quran.png": "/QuranBangladesh/static/media/quran.d9ff01de.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2db5cac6.js",
-    "static/js/2.256e431e.chunk.js",
+    "static/js/2.7258d5d3.chunk.js",
     "static/css/main.1f8cda04.chunk.css",
-    "static/js/main.31432ea2.chunk.js"
+    "static/js/main.76519b99.chunk.js"
   ]
 }
